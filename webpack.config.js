@@ -5,7 +5,11 @@ const env = process.env.NODE_ENV || 'development'
 
 module.exports = {
   devtool: 'eval',
-  entry: ['react-hot-loader/patch', 'webpack/hot/only-dev-server', './src/index.js'],
+  entry: [
+    'react-hot-loader/patch',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
   output: {
     filename: '[name].js',
     path: path.resolve('./dist'),
@@ -53,7 +57,7 @@ module.exports = {
     })
   ],
   resolve: {
-    modules: [path.join(__dirname, '.src/client'), 'node_modules']
+    modules: [path.join(__dirname, './src'), 'node_modules']
   },
   devServer: {
     hot: true,
