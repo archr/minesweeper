@@ -17,6 +17,7 @@ class DialogGameOption extends React.Component {
             type='text'
             value={level.rows}
             onChange={e => onChangeCustomValue('rows', e.target.value)}
+            onFocus={() => onChangeLevel('Custom')}
           />
         </td>
       )
@@ -26,6 +27,7 @@ class DialogGameOption extends React.Component {
             type='text'
             value={level.cols}
             onChange={e => onChangeCustomValue('cols', e.target.value)}
+            onFocus={() => onChangeLevel('Custom')}
           />
         </td>
       )
@@ -35,6 +37,7 @@ class DialogGameOption extends React.Component {
             type='text'
             value={level.mines}
             onChange={e => onChangeCustomValue('mines', e.target.value)}
+            onFocus={() => onChangeLevel('Custom')}
           />
         </td>
       )
