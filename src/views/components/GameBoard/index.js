@@ -1,26 +1,30 @@
 import React from 'react'
-import classNames from 'classnames'
+import GameBoardSpace from '../GameBoardSpace'
 import './style.scss'
 
 class GameBoard extends React.Component {
   render () {
-    const { game, settings } = this.props
+    const { game, settings, onSelecteSpace } = this.props
     const matrix = []
 
-    for (let i = 1; i <= game.rows; i++) {
+    for (let i = 0; i < game.rows; i++) {
       const cells = []
 
-      for (let j = 1; j <= game.cols; j++) {
+      for (let j = 0; j < game.cols; j++) {
         cells.push(
-          <div
-            className={classNames(`square-${settings.zoom}`, {
-              blank: true
-            })}
+          <GameBoardSpace
+            key={j}
+            row={i}
+            col={j}
+            space={game.spaces[i][j]}
+            zoom={settings.zoom}
+            onSelect={onSelecteSpace}
+            gameOver={game.over}
           />
         )
       }
 
-      matrix.push(<div className='row'>{cells}</div>)
+      matrix.push(<div key={i} className='row'>{cells}</div>)
     }
 
     return (
@@ -28,6 +32,7 @@ class GameBoard extends React.Component {
         <div className='matrix'>
           {matrix}
         </div>
+        {game.over ? 'Juego terminado' : 'Juega'}
       </div>
     )
   }

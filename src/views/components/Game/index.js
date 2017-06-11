@@ -49,13 +49,18 @@ class Game extends React.Component {
       game,
       selectedLevel,
       changedCustomValue,
-      changedSetting
+      changedSetting,
+      selectedSpace
     } = this.props
 
     return (
       <div className='game'>
         <GameHeader onShowDialog={this.onShowDialog} />
-        <GameBoard game={game} settings={settings} />
+        <GameBoard
+          game={game}
+          settings={settings}
+          onSelecteSpace={selectedSpace}
+        />
 
         {showDialogGame &&
           <DialogGame
@@ -93,7 +98,8 @@ const mapDispatchToProps = {
   selectedLevel: settingsActions.selectedLevel,
   changedSetting: settingsActions.changedValue,
   changedCustomValue: levelsActions.changedCustomValue,
-  newGame: gameActions.newGame
+  newGame: gameActions.newGame,
+  selectedSpace: gameActions.selectedSpace
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)
