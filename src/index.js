@@ -3,7 +3,6 @@ import React from 'react'
 import { AppContainer } from 'react-hot-loader'
 import ReactDOM from 'react-dom'
 import store from './core/store'
-import './views/styles/styles.scss'
 import Root from './views/root'
 
 const rootElement = document.getElementById('root')

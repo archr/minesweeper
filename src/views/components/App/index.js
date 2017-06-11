@@ -4,13 +4,21 @@ import classNames from 'classnames'
 import Game from '../Game'
 import './style.scss'
 
-function App ({ settings }) {
-  return (
-    <div
-      className={classNames('app', settings.position.toLowerCase())}>
-      <Game />
-    </div>
-  )
+class App extends React.Component {
+  componentWillReceiveProps (nextProps) {
+    if (this.props.settings.nightMode !== nextProps.settings.nightMode) {
+      document.body.classList.toggle('night-mode', nextProps.settings.nightMode)
+    }
+  }
+
+  render () {
+    const { settings } = this.props
+    return (
+      <div className={classNames('app', settings.position.toLowerCase())} >
+        <Game />
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => ({

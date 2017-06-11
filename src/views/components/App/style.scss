@@ -1,3 +1,58 @@
+html {
+  font-family: arial;
+}
+
+body {
+  margin: 15px;
+}
+
+.night-mode {
+  background: black;
+  color: #888;
+
+  .game-header .menu {
+    color: #069;
+  }
+
+  .dialog {
+    background: #BBB;
+    color: #444;
+  }
+
+  .dialog .header {
+    color: #AAA;
+    background: #184292;
+  }
+
+  .game-board {
+    background: #7E7E7E;
+
+    border-right-color: #878787;
+    border-bottom-color: #878787;
+    border-top-color: #b5b5b5;
+    border-left-color: #b5b5b5;
+  }
+
+  .game-board .matrix {
+    border-right-color: #b5b5b5;
+    border-bottom-color: #b5b5b5;
+    border-top-color: #878787;
+    border-left-color: #878787;
+  }
+
+  .square-100 {
+    background-image: url(http://minesweeperonline.com/sprite100-night.gif);
+  }
+
+  .square-150 {
+    background-image: url(http://minesweeperonline.com/sprite150-night.gif);
+  }
+
+  .square-200 {
+    background-image: url(http://minesweeperonline.com/sprite200-night.gif);
+  }
+}
+
 .app {
   display: flex;
 
