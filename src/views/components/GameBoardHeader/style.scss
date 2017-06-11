@@ -12,6 +12,10 @@
   .bombs, .timer {
     display: flex;
   }
+
+  .face {
+    cursor: pointer;
+  }
 }
 
 .game-board-header-100 {

@@ -5,7 +5,7 @@ import './style.scss'
 
 class GameBoard extends React.Component {
   render () {
-    const { game, settings, timer, onSelecteSpace } = this.props
+    const { game, settings, timer, onSelecteSpace, onNewGame } = this.props
     const matrix = []
 
     for (let i = 0; i < game.rows; i++) {
@@ -30,7 +30,12 @@ class GameBoard extends React.Component {
 
     return (
       <div className='game-board'>
-        <GameBoardHeader settings={settings} game={game} timer={timer} />
+        <GameBoardHeader
+          settings={settings}
+          game={game}
+          timer={timer}
+          onNewGame={onNewGame}
+        />
         <div className='matrix'>
           {matrix}
         </div>

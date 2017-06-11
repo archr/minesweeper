@@ -102,6 +102,7 @@ class Game extends React.Component {
           settings={settings}
           timer={timer}
           onSelecteSpace={this.onSelectSpace}
+          onNewGame={this.onNewGame}
         />
 
         {showDialogGame &&

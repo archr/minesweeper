@@ -27,7 +27,7 @@ const formatMines = mines => {
 
 class GameBoardHeader extends React.Component {
   render () {
-    const { settings, game, timer } = this.props
+    const { settings, game, timer, onNewGame } = this.props
     const seconds = format(Math.floor(timer.time / 1000))
     const mines = formatMines(game.mines)
 
@@ -49,6 +49,7 @@ class GameBoardHeader extends React.Component {
             smile: !game.over,
             dead: game.over
           })}
+          onClick={onNewGame}
         />
 
         <div className='timer'>
