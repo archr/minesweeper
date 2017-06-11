@@ -15,10 +15,21 @@ const format = seconds => {
   return time
 }
 
+const formatMines = mines => {
+  let m = `${mines}`
+
+  while (m.length < 3) {
+    m = '0' + m
+  }
+
+  return m
+}
+
 class GameBoardHeader extends React.Component {
   render () {
     const { settings, game, timer } = this.props
     const seconds = format(Math.floor(timer.time / 1000))
+    const mines = formatMines(game.mines)
 
     return (
       <div
@@ -28,9 +39,9 @@ class GameBoardHeader extends React.Component {
         )}
       >
         <div className='bombs'>
-          <IconNumber number={1} zoom={settings.zoom} />
-          <IconNumber number={4} zoom={settings.zoom} />
-          <IconNumber number={0} zoom={settings.zoom} />
+          <IconNumber number={mines[0]} zoom={settings.zoom} />
+          <IconNumber number={mines[1]} zoom={settings.zoom} />
+          <IconNumber number={mines[2]} zoom={settings.zoom} />
         </div>
 
         <div
