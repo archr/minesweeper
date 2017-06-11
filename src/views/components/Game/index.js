@@ -55,7 +55,7 @@ class Game extends React.Component {
     return (
       <div className='game'>
         <GameHeader onShowDialog={this.onShowDialog} />
-        <GameBoard game={game} />
+        <GameBoard game={game} settings={settings} />
 
         {showDialogGame &&
           <DialogGame

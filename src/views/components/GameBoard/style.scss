@@ -17,15 +17,35 @@
     display: flex;
   }
 
-  .square {
+  .square-100 {
     background-image: url(http://minesweeperonline.com/sprite100.gif);
-  } 
-
-  .blank {
-    background-position: 0 -39px;
     width: 16px;
     height: 16px;
     cursor: pointer;
+
+    &.blank {
+      background-position: 0 -39px;
+    }
+  }
+
+  .square-150 {
+    background-image: url(http://minesweeperonline.com/sprite150.gif);
+    width: 24px;
+    height: 24px;
+
+    &.blank {
+      background-position: 0 -59px;
+    }
+  }
+
+  .square-200 {
+    background-image: url(http://minesweeperonline.com/sprite200.gif);
+    width: 32px;
+    height: 32px;
+
+    &.blank {
+      background-position: 0 -78px;
+    }
   }
 
 }
