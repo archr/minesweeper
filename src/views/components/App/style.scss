@@ -40,6 +40,13 @@ body {
     border-left-color: #878787;
   }
 
+  .game-board-header {
+    border-right-color: #b5b5b5;
+    border-bottom-color: #b5b5b5;
+    border-top-color: #878787;
+    border-left-color: #878787;
+  }
+
   .square-100 {
     background-image: url(http://minesweeperonline.com/sprite100-night.gif);
   }
@@ -49,6 +56,30 @@ body {
   }
 
   .square-200 {
+    background-image: url(http://minesweeperonline.com/sprite200-night.gif);
+  }
+
+  .game-board-header-100 .face  {
+    background-image: url(http://minesweeperonline.com/sprite100-night.gif);
+  }
+
+  .game-board-header-150 .face  {
+    background-image: url(http://minesweeperonline.com/sprite150-night.gif);
+  }
+
+  .game-board-header-200 .face  {
+    background-image: url(http://minesweeperonline.com/sprite200-night.gif);
+  }
+
+  .icon-number-100 {
+    background-image: url(http://minesweeperonline.com/sprite100-night.gif);
+  }
+
+  .icon-number-150 {
+    background-image: url(http://minesweeperonline.com/sprite150-night.gif);
+  }
+
+  .icon-number-200 {
     background-image: url(http://minesweeperonline.com/sprite200-night.gif);
   }
 }
