@@ -5,6 +5,12 @@ import Game from '../Game'
 import './style.scss'
 
 class App extends React.Component {
+  componentDidMount () {
+    if (this.props.settings.nightMode) {
+      document.body.classList.toggle('night-mode', true)
+    }
+  }
+
   componentWillReceiveProps (nextProps) {
     if (this.props.settings.nightMode !== nextProps.settings.nightMode) {
       document.body.classList.toggle('night-mode', nextProps.settings.nightMode)
@@ -14,7 +20,7 @@ class App extends React.Component {
   render () {
     const { settings } = this.props
     return (
-      <div className={classNames('app', settings.position.toLowerCase())} >
+      <div className={classNames('app', settings.position.toLowerCase())}>
         <Game />
       </div>
     )
