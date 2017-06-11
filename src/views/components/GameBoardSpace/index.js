@@ -17,7 +17,7 @@ class GameBoardSpace extends React.Component {
           'bomb-revealed': bombRevealed && !space.explored,
           'bomb-dead': bombRevealed && space.explored
         })}
-        onClick={() => onSelect(row, col)}
+        onClick={() => !gameOver && onSelect(row, col)}
       />
     )
   }

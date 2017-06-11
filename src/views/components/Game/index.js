@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { settingsActions } from 'core/settings'
 import { levelsActions } from 'core/levels'
 import { gameActions } from 'core/game'
+import { timerActions } from 'core/timer'
 import GameHeader from '../GameHeader'
 import GameBoard from '../GameBoard'
 import DialogGame from '../DialogGame'
@@ -25,6 +26,16 @@ class Game extends React.Component {
     this.onNewGame()
   }
 
+  componentWillUnmount () {
+    this.stopTimer()
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.timer && nextProps.game.over) {
+      this.stopTimer()
+    }
+  }
+
   onShowDialog = dialogName => {
     this.setState({
       showDialogGame: dialogName === 'game',
@@ -38,7 +49,37 @@ class Game extends React.Component {
     const level = levels.filter(level => level.name === settings.level)[0]
     newGame(level)
 
+    this.stopTimer()
     this.setState({ showDialogGame: false })
+  }
+
+  onSelectSpace = (row, col) => {
+    const { selectedSpace, game } = this.props
+
+    selectedSpace(row, col)
+
+    if (game.spacesCleared === 0 && !this.timer) {
+      this.startTimer()
+    }
+  }
+
+  startTimer = () => {
+    const { startTimer, tickTimer } = this.props
+    startTimer(Date.now() - 1000)
+    tickTimer(Date.now())
+
+    this.timer = setInterval(() => {
+      tickTimer(Date.now())
+    }, 1000)
+  }
+
+  stopTimer = () => {
+    if (!this.timer) return
+
+    const { stopTimer } = this.props
+    clearInterval(this.timer)
+    this.timer = null
+    stopTimer()
   }
 
   render () {
@@ -47,10 +88,10 @@ class Game extends React.Component {
       levels,
       settings,
       game,
+      timer,
       selectedLevel,
       changedCustomValue,
-      changedSetting,
-      selectedSpace
+      changedSetting
     } = this.props
 
     return (
@@ -59,7 +100,8 @@ class Game extends React.Component {
         <GameBoard
           game={game}
           settings={settings}
-          onSelecteSpace={selectedSpace}
+          timer={timer}
+          onSelecteSpace={this.onSelectSpace}
         />
 
         {showDialogGame &&
@@ -91,7 +133,8 @@ class Game extends React.Component {
 const mapStateToProps = state => ({
   levels: state.levels,
   settings: state.settings,
-  game: state.game
+  game: state.game,
+  timer: state.timer
 })
 
 const mapDispatchToProps = {
@@ -99,7 +142,10 @@ const mapDispatchToProps = {
   changedSetting: settingsActions.changedValue,
   changedCustomValue: levelsActions.changedCustomValue,
   newGame: gameActions.newGame,
-  selectedSpace: gameActions.selectedSpace
+  selectedSpace: gameActions.selectedSpace,
+  startTimer: timerActions.start,
+  stopTimer: timerActions.stop,
+  tickTimer: timerActions.tick
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)

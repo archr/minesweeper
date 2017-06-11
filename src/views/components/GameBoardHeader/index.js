@@ -3,9 +3,22 @@ import classNames from 'classnames'
 import IconNumber from '../IconNumber'
 import './style.scss'
 
+const format = seconds => {
+  if (seconds > 999) return '999'
+
+  let time = `${seconds}`
+
+  while (time.length < 3) {
+    time = '0' + time
+  }
+
+  return time
+}
+
 class GameBoardHeader extends React.Component {
   render () {
-    const { settings, game } = this.props
+    const { settings, game, timer } = this.props
+    const seconds = format(Math.floor(timer.time / 1000))
 
     return (
       <div
@@ -28,9 +41,9 @@ class GameBoardHeader extends React.Component {
         />
 
         <div className='timer'>
-          <IconNumber number={0} zoom={settings.zoom} />
-          <IconNumber number={0} zoom={settings.zoom} />
-          <IconNumber number={0} zoom={settings.zoom} />
+          <IconNumber number={seconds[0]} zoom={settings.zoom} />
+          <IconNumber number={seconds[1]} zoom={settings.zoom} />
+          <IconNumber number={seconds[2]} zoom={settings.zoom} />
         </div>
       </div>
     )
