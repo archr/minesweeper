@@ -29,7 +29,7 @@ class GameBoardHeader extends React.Component {
   render () {
     const { settings, game, timer, onNewGame } = this.props
     const seconds = format(Math.floor(timer.time / 1000))
-    const mines = formatMines(game.mines)
+    const mines = formatMines(game.mines - game.spacesFlagged)
 
     return (
       <div

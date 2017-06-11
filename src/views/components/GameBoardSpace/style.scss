@@ -1,6 +1,6 @@
 .space {
-  &.game-win, &.game-over, &.explored {
-    pointer-events: none;
+  &.game-win, &.game-over, &.explored, &.flagged {
+    cursor: default;
   }
 }
 
@@ -18,6 +18,10 @@
   &.bomb-dead {
     background-position: -32px -39px;
   }
+
+  &.flagged {
+    background-position: -16px -39px;
+  }
 }
 
 .space-150 {
@@ -34,6 +38,10 @@
   &.bomb-dead {
     background-position: -48px -59px;
   }
+
+  &.flagged {
+    background-position: -24px -59px;
+  }
 }
 
 .space-200 {
@@ -49,5 +57,9 @@
 
   &.bomb-dead {
     background-position: -64px -78px;
+  }
+
+  &.flagged {
+    background-position: -32px -78px;
   }
 }

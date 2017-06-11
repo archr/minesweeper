@@ -5,7 +5,14 @@ import './style.scss'
 
 class GameBoard extends React.Component {
   render () {
-    const { game, settings, timer, onSelecteSpace, onNewGame } = this.props
+    const {
+      game,
+      settings,
+      timer,
+      onSelecteSpace,
+      onNewGame,
+      onFlagSpace
+    } = this.props
     const matrix = []
 
     for (let i = 0; i < game.rows; i++) {
@@ -20,6 +27,7 @@ class GameBoard extends React.Component {
             space={game.spaces[i][j]}
             zoom={settings.zoom}
             onSelect={onSelecteSpace}
+            onFlagSpace={onFlagSpace}
             gameOver={game.over}
             gameWin={game.win}
           />

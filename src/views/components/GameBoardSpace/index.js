@@ -3,8 +3,25 @@ import classNames from 'classnames'
 import './style.scss'
 
 class GameBoardSpace extends React.Component {
+  onContextMenu = (e) => {
+    e.preventDefault()
+
+    const { onFlagSpace, row, col } = this.props
+    onFlagSpace(row, col)
+  }
+
+  onClick = (e) => {
+    e.preventDefault()
+
+    const { row, col, gameWin, gameOver, space, onSelect } = this.props
+
+    if (gameWin || gameOver || space.explored || space.flagged) return
+
+    onSelect(row, col)
+  }
+
   render () {
-    const { row, col, space, zoom, onSelect, gameOver, gameWin } = this.props
+    const { space, zoom, gameOver, gameWin } = this.props
     const open = space.explored && space.holds !== -1
       ? `open-${space.holds}`
       : ''
@@ -18,15 +35,17 @@ class GameBoardSpace extends React.Component {
           `square-${zoom}`,
           open,
           {
-            blank: !space.explored && !bombRevealed,
+            blank: !space.explored && !bombRevealed && !space.flagged,
             'bomb-revealed': bombRevealed && !space.explored,
             'bomb-dead': bombRevealed && space.explored,
+            flagged: space.flagged,
             'game-win': gameWin,
             'game-over': gameOver,
             explored: space.explored
           }
         )}
-        onClick={() => onSelect(row, col)}
+        onClick={this.onClick}
+        onContextMenu={this.onContextMenu}
       />
     )
   }

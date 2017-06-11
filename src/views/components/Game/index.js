@@ -93,7 +93,8 @@ class Game extends React.Component {
       timer,
       selectedLevel,
       changedCustomValue,
-      changedSetting
+      changedSetting,
+      flaggedSpace
     } = this.props
 
     return (
@@ -104,6 +105,7 @@ class Game extends React.Component {
           settings={settings}
           timer={timer}
           onSelecteSpace={this.onSelectSpace}
+          onFlagSpace={flaggedSpace}
           onNewGame={this.onNewGame}
         />
 
@@ -146,6 +148,7 @@ const mapDispatchToProps = {
   changedCustomValue: levelsActions.changedCustomValue,
   newGame: gameActions.newGame,
   selectedSpace: gameActions.selectedSpace,
+  flaggedSpace: gameActions.flaggedSpace,
   startTimer: timerActions.start,
   restartTimer: timerActions.restart,
   tickTimer: timerActions.tick

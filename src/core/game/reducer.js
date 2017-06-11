@@ -7,6 +7,7 @@ const initialState = {
   mines: 0,
   spaces: null,
   spacesCleared: 0,
+  spacesFlagged: 0,
   over: false
 }
 
@@ -18,6 +19,7 @@ export function gameReducer (state = initialState, { type, payload }) {
       cols: payload.level.cols,
       mines: payload.level.mines,
       spacesCleared: 0,
+      spacesFlagged: 0,
       spaces: engine.create(
         payload.level.rows,
         payload.level.cols,
@@ -31,6 +33,13 @@ export function gameReducer (state = initialState, { type, payload }) {
     return {
       ...state,
       ...engine.open(payload.row, payload.col, { ...state })
+    }
+  }
+
+  if (type === gameActions.GAME_FLAGGED_SPACE) {
+    return {
+      ...state,
+      ...engine.flagged(payload.row, payload.col, { ...state })
     }
   }
 

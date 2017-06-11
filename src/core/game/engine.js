@@ -81,6 +81,13 @@ const engine = {
     }
 
     return state
+  },
+
+  flagged (row, col, state) {
+    state.spaces[row][col].flagged = !state.spaces[row][col].flagged
+    state.spacesFlagged += state.spaces[row][col].flagged ? 1 : -1
+
+    return state
   }
 }
 
