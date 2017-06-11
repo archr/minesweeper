@@ -3,15 +3,19 @@ import './style.scss'
 
 class GameHeader extends React.Component {
   render () {
-    const { onSelectDialogGame, onSelectDialogDisplay } = this.props
+    const { onShowDialog } = this.props
 
     return (
       <div className='game-header'>
-        <div className='menu' onClick={onSelectDialogGame}>Game</div>
+        <div className='menu' onClick={() => onShowDialog('game')}>Game</div>
         |
-        <div className='menu' onClick={onSelectDialogDisplay}>Display</div>
+        <div className='menu' onClick={() => onShowDialog('display')}>
+          Display
+        </div>
         |
-        <div className='menu'>Controls</div>
+        <div className='menu' onClick={() => onShowDialog('controls')}>
+          Controls
+        </div>
       </div>
     )
   }

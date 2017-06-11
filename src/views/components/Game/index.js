@@ -5,6 +5,7 @@ import { levelsActions } from 'core/levels'
 import GameHeader from '../GameHeader'
 import DialogGame from '../DialogGame'
 import DialogDisplay from '../DialogDisplay'
+import DialogControls from '../DialogControls'
 import './style.scss'
 
 class Game extends React.Component {
@@ -13,12 +14,21 @@ class Game extends React.Component {
 
     this.state = {
       showDialogGame: false,
-      showDialogDisplay: false
+      showDialogDisplay: false,
+      showDialogControls: false
     }
   }
 
+  onShowDialog = dialogName => {
+    this.setState({
+      showDialogGame: dialogName === 'game',
+      showDialogDisplay: dialogName === 'display',
+      showDialogControls: dialogName === 'controls'
+    })
+  }
+
   render () {
-    const { showDialogGame, showDialogDisplay } = this.state
+    const { showDialogGame, showDialogDisplay, showDialogControls } = this.state
     const {
       levels,
       settings,
@@ -29,12 +39,7 @@ class Game extends React.Component {
 
     return (
       <div className='game'>
-        <GameHeader
-          onSelectDialogGame={() =>
-            this.setState({ showDialogGame: true, showDialogDisplay: false })}
-          onSelectDialogDisplay={() =>
-            this.setState({ showDialogGame: false, showDialogDisplay: true })}
-        />
+        <GameHeader onShowDialog={this.onShowDialog} />
         {showDialogGame &&
           <DialogGame
             onClose={() => this.setState({ showDialogGame: false })}
@@ -50,6 +55,11 @@ class Game extends React.Component {
             onClose={() => this.setState({ showDialogDisplay: false })}
             onChangeSetting={changedSetting}
             settings={settings}
+          />}
+
+        {showDialogControls &&
+          <DialogControls
+            onClose={() => this.setState({ showDialogControls: false })}
           />}
       </div>
     )
