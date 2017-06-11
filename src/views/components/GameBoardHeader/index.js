@@ -47,7 +47,8 @@ class GameBoardHeader extends React.Component {
         <div
           className={classNames('face', {
             smile: !game.over,
-            dead: game.over
+            dead: game.over,
+            winner: game.win
           })}
           onClick={onNewGame}
         />

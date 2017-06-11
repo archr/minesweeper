@@ -4,7 +4,7 @@ import './style.scss'
 
 class GameBoardSpace extends React.Component {
   render () {
-    const { row, col, space, zoom, onSelect, gameOver } = this.props
+    const { row, col, space, zoom, onSelect, gameOver, gameWin } = this.props
     const open = space.explored && space.holds !== -1
       ? `open-${space.holds}`
       : ''
@@ -12,12 +12,21 @@ class GameBoardSpace extends React.Component {
 
     return (
       <div
-        className={classNames(`space-${zoom}`, `square-${zoom}`, open, {
-          blank: !space.explored && !bombRevealed,
-          'bomb-revealed': bombRevealed && !space.explored,
-          'bomb-dead': bombRevealed && space.explored
-        })}
-        onClick={() => !gameOver && onSelect(row, col)}
+        className={classNames(
+          'space',
+          `space-${zoom}`,
+          `square-${zoom}`,
+          open,
+          {
+            blank: !space.explored && !bombRevealed,
+            'bomb-revealed': bombRevealed && !space.explored,
+            'bomb-dead': bombRevealed && space.explored,
+            'game-win': gameWin,
+            'game-over': gameOver,
+            explored: space.explored
+          }
+        )}
+        onClick={() => onSelect(row, col)}
       />
     )
   }

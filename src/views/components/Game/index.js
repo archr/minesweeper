@@ -31,7 +31,10 @@ class Game extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (this.timer && nextProps.game.over) {
+    if (
+      (this.timer && nextProps.game.over) ||
+      (this.timer && nextProps.game.win)
+    ) {
       this.stopTimer()
     }
   }

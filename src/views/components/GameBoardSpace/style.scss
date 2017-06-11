@@ -1,3 +1,9 @@
+.space {
+  &.game-win, &.game-over, &.explored {
+    pointer-events: none;
+  }
+}
+
 .space-100 {
   @for $i from 1 through 6 {
     &.open-#{$i - 1} {

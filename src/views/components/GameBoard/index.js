@@ -21,6 +21,7 @@ class GameBoard extends React.Component {
             zoom={settings.zoom}
             onSelect={onSelecteSpace}
             gameOver={game.over}
+            gameWin={game.win}
           />
         )
       }

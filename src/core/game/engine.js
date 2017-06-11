@@ -60,6 +60,7 @@ const engine = {
 
     const space = state.spaces[row][col]
     space.explored = true
+    state.spacesCleared++
 
     if (space.holds === -1) {
       return {
@@ -73,6 +74,10 @@ const engine = {
           this.open(row + i, col + j, state)
         }
       }
+    }
+
+    if (state.cols * state.rows - state.spacesCleared === state.mines) {
+      state.win = true
     }
 
     return state
