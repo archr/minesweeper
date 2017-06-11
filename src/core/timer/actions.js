@@ -1,7 +1,7 @@
 
 export const timerActions = {
   TIMER_START: 'TIMER_START',
-  TIMER_STOP: 'TIMER_STOP',
+  TIMER_RESTART: 'TIMER_RESTART',
   TIMER_TICK: 'TIMER_TICK',
 
   start: (offset) => ({
@@ -9,8 +9,8 @@ export const timerActions = {
     payload: { offset }
   }),
 
-  stop: () => ({
-    type: timerActions.TIMER_STOP
+  restart: () => ({
+    type: timerActions.TIMER_RESTART
   }),
 
   tick: (time) => ({

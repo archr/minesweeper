@@ -12,7 +12,7 @@ export function timerReducer (state = initialState, { type, payload }) {
     }
   }
 
-  if (type === timerActions.TIMER_STOP) {
+  if (type === timerActions.TIMER_RESTART) {
     return {
       ...initialState
     }

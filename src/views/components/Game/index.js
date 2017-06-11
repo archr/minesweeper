@@ -45,9 +45,10 @@ class Game extends React.Component {
   }
 
   onNewGame = () => {
-    const { settings, levels, newGame } = this.props
+    const { settings, levels, newGame, restartTimer } = this.props
     const level = levels.filter(level => level.name === settings.level)[0]
     newGame(level)
+    restartTimer()
 
     this.stopTimer()
     this.setState({ showDialogGame: false })
@@ -76,10 +77,8 @@ class Game extends React.Component {
   stopTimer = () => {
     if (!this.timer) return
 
-    const { stopTimer } = this.props
     clearInterval(this.timer)
     this.timer = null
-    stopTimer()
   }
 
   render () {
@@ -145,7 +144,7 @@ const mapDispatchToProps = {
   newGame: gameActions.newGame,
   selectedSpace: gameActions.selectedSpace,
   startTimer: timerActions.start,
-  stopTimer: timerActions.stop,
+  restartTimer: timerActions.restart,
   tickTimer: timerActions.tick
 }
 
