@@ -1,13 +1,9 @@
 import React from 'react'
+import InputRadio from '../InputRadio'
 
 class DialogGameOption extends React.Component {
   render () {
-    const {
-      level,
-      checked,
-      onChangeLevel,
-      onChangeCustomValue
-    } = this.props
+    const { level, checked, onChangeLevel, onChangeCustomValue } = this.props
     const tds = []
 
     if (level.name === 'Custom') {
@@ -50,14 +46,11 @@ class DialogGameOption extends React.Component {
     return (
       <tr>
         <td>
-          <label>
-            <input
-              type='radio'
-              checked={checked}
-              onChange={() => onChangeLevel(level.name)}
-            />
-            <strong> {level.name}</strong>
-          </label>
+          <InputRadio
+            checked={checked}
+            onChange={() => onChangeLevel(level.name)}
+            title={level.name}
+          />
         </td>
         {tds}
       </tr>

@@ -1,29 +1,4 @@
 .dialog-game {
-  left: 24px;
-  top: 102px;
-  position: absolute;
-  background: #EEE;
-  font-size: 12px;
-  border: 1px solid rgb(68, 68, 68);
-
-  .header {
-    color: white;
-    background: #06F;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    padding: 3px;
-
-    span {
-    }
-
-    .close {
-      font-size: 16px;
-      line-height: 15px;
-      cursor: pointer;
-    }
-  }
-
   table {
     background: #EEE;
 
