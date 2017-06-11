@@ -1,0 +1,38 @@
+.icon-number-100 {
+  background-image: url(http://minesweeperonline.com/sprite100.gif);
+  width: 13px;
+  height: 23px;
+
+
+  @for $i from 1 through 10 {
+    &.number-#{$i - 1} {
+      background-position: (-13px * ($i - 1)) -0px;
+    }
+  }
+}
+
+.icon-number-150 {
+  background-image: url(http://minesweeperonline.com/sprite150.gif);
+  width: 20px;
+  height: 35px;
+
+
+  @for $i from 1 through 10 {
+    &.number-#{$i - 1} {
+      background-position: (-20px * ($i - 1)) -0px;
+    }
+  }
+}
+
+.icon-number-200 {
+  background-image: url(http://minesweeperonline.com/sprite200.gif);
+  width: 26px;
+  height: 46px;
+
+
+  @for $i from 1 through 10 {
+    &.number-#{$i - 1} {
+      background-position: (-26px * ($i - 1)) -0px;
+    }
+  }
+}

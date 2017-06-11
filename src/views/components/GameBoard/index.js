@@ -1,4 +1,5 @@
 import React from 'react'
+import GameBoardHeader from '../GameBoardHeader'
 import GameBoardSpace from '../GameBoardSpace'
 import './style.scss'
 
@@ -29,10 +30,10 @@ class GameBoard extends React.Component {
 
     return (
       <div className='game-board'>
+        <GameBoardHeader settings={settings} game={game} />
         <div className='matrix'>
           {matrix}
         </div>
-        {game.over ? 'Juego terminado' : 'Juega'}
       </div>
     )
   }

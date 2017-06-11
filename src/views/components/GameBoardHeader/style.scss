@@ -1,0 +1,63 @@
+.game-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  border-right: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  border-top: 2px solid #919191;
+  border-left: 2px solid #919191;
+
+  .bombs, .timer {
+    display: flex;
+  }
+}
+
+.game-board-header-100 {
+  .face {
+    background-image: url(http://minesweeperonline.com/sprite100.gif);
+    width: 26px;
+    height: 26px;
+
+    &.smile {
+      background-position: 0 -55px;
+    }
+
+    &.dead {
+      background-position: -78px -55px;
+    }
+  } 
+}
+
+.game-board-header-150 {
+  .face {
+    background-image: url(http://minesweeperonline.com/sprite150.gif);
+    width: 39px;
+    height: 39px;
+
+    &.smile {
+      background-position: 0 -83px;
+    }
+
+    &.dead {
+      background-position: -117px -83px;
+    }
+  } 
+}
+
+.game-board-header-200 {
+  .face {
+    background-image: url(http://minesweeperonline.com/sprite200.gif);
+    width: 52px;
+    height: 52px;
+
+    &.smile {
+      background-position: 0 -110px;
+    }
+
+    &.dead {
+      background-position: -156px -110px;
+    }
+  } 
+}

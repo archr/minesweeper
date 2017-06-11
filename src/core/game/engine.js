@@ -1,6 +1,5 @@
 const engine = {
   create (rows, cols, mineNum) {
-    console.log('create', rows, cols)
     // Create spaces
     const spaces = []
     const suffleSpaces = []
@@ -15,7 +14,7 @@ const engine = {
     // Create mines
     for (let m = 0; m < mineNum; m++) {
       const [mine] = suffleSpaces.splice(
-        Math.round(Math.random() * suffleSpaces.length),
+        Math.round(Math.random() * (suffleSpaces.length - 1)),
         1
       )
       spaces[mine[0]][mine[1]].holds = -1
