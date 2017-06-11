@@ -1,7 +1,11 @@
 .app {
   display: flex;
-  justify-content: center;
 
-  .content {
+  &.center {
+    justify-content: center;
+  }
+
+  &.left {
+    justify-content: flex-start;
   }
 }

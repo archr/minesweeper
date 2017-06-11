@@ -1,15 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import classNames from 'classnames'
 import Game from '../Game'
 import './style.scss'
 
-function App () {
+function App ({ settings }) {
   return (
-    <div className='app'>
-      <div className='content'>
-        <Game />
-      </div>
+    <div
+      className={classNames('app', settings.position.toLowerCase())}>
+      <Game />
     </div>
   )
 }
 
-export default App
+const mapStateToProps = state => ({
+  settings: state.settings
+})
+
+export default connect(mapStateToProps)(App)
