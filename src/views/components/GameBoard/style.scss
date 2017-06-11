@@ -1,0 +1,31 @@
+.game-board {
+  background: #C0C0C0;
+  padding: 6px;
+  border-right: 2px solid #919191;
+  border-bottom: 2px solid #919191;
+  border-top: 2px solid #FFF;
+  border-left: 2px solid #FFF;
+
+  .matrix {
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    border-top: 2px solid #919191;
+    border-left: 2px solid #919191;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .square {
+    background-image: url(http://minesweeperonline.com/sprite100.gif);
+  } 
+
+  .blank {
+    background-position: 0 -39px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+}

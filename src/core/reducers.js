@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { levelsReducer } from './levels'
 import { settingsReducer } from './settings'
+import { gameReducer } from './game'
 
 export default combineReducers({
   levels: levelsReducer,
-  settings: settingsReducer
+  settings: settingsReducer,
+  game: gameReducer
 })
