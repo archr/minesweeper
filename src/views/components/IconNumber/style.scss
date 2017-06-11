@@ -16,11 +16,42 @@
   width: 20px;
   height: 35px;
 
-
   @for $i from 1 through 10 {
     &.number-#{$i - 1} {
       background-position: (-20px * ($i - 1)) -0px;
     }
+  }
+
+  &.number-2 {
+    background-position: -39px 0;
+  }
+
+  &.number-3 {
+    background-position: -59px 0;
+  }
+
+  &.number-4 {
+    background-position: -78px 0;
+  }
+
+  &.number-5 {
+    background-position: -98px 0;
+  }
+
+  &.number-6 {
+    background-position: -117px 0;
+  }
+
+  &.number-7 {
+    background-position: -137px 0;
+  }
+
+  &.number-8 {
+    background-position: -156px 0;
+  }
+  
+  &.number-9 {
+    background-position: -176px 0;
   }
 }
 
