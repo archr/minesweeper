@@ -4,6 +4,7 @@ import { settingsActions } from 'core/settings'
 import { levelsActions } from 'core/levels'
 import GameHeader from '../GameHeader'
 import DialogGame from '../DialogGame'
+import DialogDisplay from '../DialogDisplay'
 import './style.scss'
 
 class Game extends React.Component {
@@ -11,18 +12,28 @@ class Game extends React.Component {
     super()
 
     this.state = {
-      showDialogGame: false
+      showDialogGame: false,
+      showDialogDisplay: false
     }
   }
 
   render () {
-    const { showDialogGame } = this.state
-    const { levels, settings, selectedLevel, changedCustomValue } = this.props
+    const { showDialogGame, showDialogDisplay } = this.state
+    const {
+      levels,
+      settings,
+      selectedLevel,
+      changedCustomValue,
+      changedSetting
+    } = this.props
 
     return (
       <div className='game'>
         <GameHeader
-          onSelectDialogGame={() => this.setState({ showDialogGame: true })}
+          onSelectDialogGame={() =>
+            this.setState({ showDialogGame: true, showDialogDisplay: false })}
+          onSelectDialogDisplay={() =>
+            this.setState({ showDialogGame: false, showDialogDisplay: true })}
         />
         {showDialogGame &&
           <DialogGame
@@ -32,6 +43,13 @@ class Game extends React.Component {
             currentLevel={settings.level}
             onChangeLevel={selectedLevel}
             onChangeCustomValue={changedCustomValue}
+          />}
+
+        {showDialogDisplay &&
+          <DialogDisplay
+            onClose={() => this.setState({ showDialogDisplay: false })}
+            onChangeSetting={changedSetting}
+            settings={settings}
           />}
       </div>
     )
@@ -45,6 +63,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   selectedLevel: settingsActions.selectedLevel,
+  changedSetting: settingsActions.changedValue,
   changedCustomValue: levelsActions.changedCustomValue
 }
 

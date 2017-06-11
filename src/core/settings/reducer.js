@@ -1,7 +1,10 @@
 const { settingsActions } = require('./actions')
 
 const initialState = {
-  level: 'Expert'
+  level: 'Expert',
+  zoom: 100,
+  position: 'Center',
+  nightMode: false
 }
 
 export function settingsReducer (state = initialState, { type, payload }) {
@@ -9,6 +12,13 @@ export function settingsReducer (state = initialState, { type, payload }) {
     return {
       ...state,
       level: payload.level
+    }
+  }
+
+  if (type === settingsActions.SETTINGS_CHANGED_VALUE) {
+    return {
+      ...state,
+      [payload.attr]: payload.value
     }
   }
 

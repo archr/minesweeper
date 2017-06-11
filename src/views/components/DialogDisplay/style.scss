@@ -1,0 +1,14 @@
+.dialog-display {
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #AAA;
+  }
+
+  td {
+    padding: 6px;
+  }
+}
