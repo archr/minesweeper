@@ -39,6 +39,7 @@ class GameBoardSpace extends React.Component {
             'bomb-revealed': bombRevealed && !space.explored,
             'bomb-dead': bombRevealed && space.explored,
             flagged: space.flagged,
+            misflagged: space.flagged && gameOver && space.holds !== -1,
             'game-win': gameWin,
             'game-over': gameOver,
             explored: space.explored

@@ -22,6 +22,10 @@
   &.flagged {
     background-position: -16px -39px;
   }
+
+  &.misflagged {
+    background-position: -48px -39px;
+  }
 }
 
 .space-150 {
@@ -42,6 +46,10 @@
   &.flagged {
     background-position: -24px -59px;
   }
+
+  &.misflagged {
+    background-position: -72px -59px;
+  }
 }
 
 .space-200 {
@@ -61,5 +69,9 @@
 
   &.flagged {
     background-position: -32px -78px;
+  }
+
+  &.misflagged {
+    background-position: -96px -78px;
   }
 }

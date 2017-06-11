@@ -8,7 +8,8 @@ const initialState = {
   spaces: null,
   spacesCleared: 0,
   spacesFlagged: 0,
-  over: false
+  over: false,
+  win: false
 }
 
 export function gameReducer (state = initialState, { type, payload }) {
@@ -25,7 +26,8 @@ export function gameReducer (state = initialState, { type, payload }) {
         payload.level.cols,
         payload.level.mines
       ),
-      over: false
+      over: false,
+      win: false
     }
   }
 
