@@ -2,19 +2,19 @@ const engine = {
   create (rows, cols, mineNum) {
     // Create spaces
     const spaces = []
-    const suffleSpaces = []
+    const cp = []
     for (let i = 0; i < rows; i++) {
       spaces[i] = []
       for (let j = 0; j < cols; j++) {
         spaces[i][j] = { explored: false, holds: 0 }
-        suffleSpaces.push([i, j])
+        cp.push([i, j])
       }
     }
 
     // Create mines
     for (let m = 0; m < mineNum; m++) {
-      const [mine] = suffleSpaces.splice(
-        Math.round(Math.random() * (suffleSpaces.length - 1)),
+      const [mine] = cp.splice(
+        Math.round(Math.random() * (cp.length - 1)),
         1
       )
       spaces[mine[0]][mine[1]].holds = -1
