@@ -1,6 +1,6 @@
 let configureStore
 
-if (process.env.ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   configureStore = require('./configureStore.dev').default
 } else {
   configureStore = require('./configureStore.prod').default
