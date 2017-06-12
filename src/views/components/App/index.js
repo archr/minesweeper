@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 import Game from '../Game'
+import LeaderBoard from '../Leaderboard'
 import './style.scss'
 
 class App extends React.Component {
@@ -19,9 +20,13 @@ class App extends React.Component {
 
   render () {
     const { settings } = this.props
+
     return (
       <div className={classNames('app', settings.position.toLowerCase())}>
-        <Game />
+        <div>
+          <Game />
+          <LeaderBoard />
+        </div>
       </div>
     )
   }

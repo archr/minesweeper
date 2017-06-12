@@ -1,0 +1,21 @@
+
+.leaderboard {
+  font-size: 12px;
+  text-align: left;
+
+  .header {
+    display: flex;
+    margin: 10px 0px;
+  }
+
+  .menu {
+    margin: 0 10px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &.selected {
+      color: black;
+    }
+  }
+}
